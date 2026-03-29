@@ -1,0 +1,67 @@
+{
+    "project_info": {
+        "project_number": "506162850052",
+        "project_id": "ourapp-c97b8",
+        "storage_bucket": "ourapp-c97b8.firebasestorage.app"
+    },
+    "client": [
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:506162850052:android:219cb8055dc47a85114851",
+                "android_client_info": {
+                    "package_name": "com.example.admintest"
+                }
+            },
+            "oauth_client": [],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyCoQ2fsPp8TaNL2Mlth9nYCuXDwMN6_t8c"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": []
+                }
+            }
+        },
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:506162850052:android:656fd3cdbcf19f04114851",
+                "android_client_info": {
+                    "package_name": "com.example.zepcart"
+                }
+            },
+            "oauth_client": [],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyCoQ2fsPp8TaNL2Mlth9nYCuXDwMN6_t8c"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": []
+                }
+            }
+        },
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:506162850052:android:3296822b938d35a1114851",
+                "android_client_info": {
+                    "package_name": "com.getzio.app"
+                }
+            },
+            "oauth_client": [],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyCoQ2fsPp8TaNL2Mlth9nYCuXDwMN6_t8c"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": []
+                }
+            }
+        }
+    ],
+    "configuration_version": "1"
+}

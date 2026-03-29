@@ -1,0 +1,61 @@
+name: company_admin
+description: "Company Admin Portal for Multi-Vendor Platform"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  
+  # State Management
+  flutter_riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.3
+  
+  # Navigation
+  go_router: ^12.1.0
+  
+  # Networking
+  http: ^1.1.2
+  socket_io_client: ^2.0.3+1
+  
+  # Storage
+  flutter_secure_storage: ^9.0.0
+  shared_preferences: ^2.2.2
+  
+  # UI & Assets
+  google_fonts: ^6.1.0
+  fl_chart: ^0.65.0
+  intl: ^0.19.0
+  
+  # JSON
+  json_annotation: ^4.8.1
+  
+  # Image Picker
+  image_picker: ^1.0.7
+  http_parser: ^4.0.2
+
+  # Firebase
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.14.0
+  firebase_storage: ^11.6.0
+  
+  # Utils
+  path: ^1.8.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.7
+  riverpod_generator: ^2.3.9
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+
