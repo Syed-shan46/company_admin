@@ -33,7 +33,7 @@ class _VendorDetailScreenState extends ConsumerState<VendorDetailScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (vendor.coverImage != null)
+                if (vendor.fullCoverImageUrl != null)
                   Container(
                     height: 200,
                     width: double.infinity,
@@ -41,7 +41,7 @@ class _VendorDetailScreenState extends ConsumerState<VendorDetailScreen> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       image: DecorationImage(
-                        image: NetworkImage(vendor.coverImage!),
+                        image: NetworkImage(vendor.fullCoverImageUrl!),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -72,10 +72,10 @@ class _VendorDetailScreenState extends ConsumerState<VendorDetailScreen> {
       children: [
         CircleAvatar(
           radius: 40,
-          backgroundImage: vendor.profileImage != null
-              ? NetworkImage(vendor.profileImage!)
+          backgroundImage: vendor.fullProfileImageUrl != null
+              ? NetworkImage(vendor.fullProfileImageUrl!)
               : null,
-          child: vendor.profileImage == null
+          child: vendor.fullProfileImageUrl == null
               ? Text(
                   vendor.businessName[0],
                   style: const TextStyle(fontSize: 32),

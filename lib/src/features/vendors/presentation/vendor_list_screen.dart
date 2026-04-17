@@ -74,10 +74,10 @@ class VendorListTab extends ConsumerWidget {
               child: ListTile(
                 onTap: () => GoRouter.of(context).go('/vendors/${vendor.id}'),
                 leading: CircleAvatar(
-                  backgroundImage: vendor.profileImage != null
-                      ? NetworkImage(vendor.profileImage!)
+                  backgroundImage: vendor.fullProfileImageUrl != null
+                      ? NetworkImage(vendor.fullProfileImageUrl!)
                       : null,
-                  child: vendor.profileImage == null
+                  child: vendor.fullProfileImageUrl == null
                       ? Text(vendor.businessName[0].toUpperCase())
                       : null,
                 ),

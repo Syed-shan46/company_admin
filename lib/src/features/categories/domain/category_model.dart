@@ -1,3 +1,4 @@
+import 'package:company_admin/src/core/constants/api_constants.dart';
 import 'package:flutter/foundation.dart';
 
 @immutable
@@ -21,10 +22,15 @@ class Category {
   });
 
   factory Category.fromJson(Map<String, dynamic> json) {
+    String? imageUrl = json['image'];
+    if (imageUrl != null && imageUrl.startsWith('/uploads')) {
+      imageUrl = '${ApiConstants.imageBaseUrl}$imageUrl';
+    }
+
     return Category(
       id: json['_id'] ?? '',
       name: json['name'] ?? '',
-      image: json['image'],
+      image: imageUrl,
       imagePublicId: json['imagePublicId'],
       isCommon: json['isCommon'] ?? false,
       businessType: json['businessType'] ?? 'grocery',

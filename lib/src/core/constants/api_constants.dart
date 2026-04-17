@@ -1,9 +1,6 @@
 class ApiConstants {
-  // Production backend URL
-  static const String baseUrl = 'https://api.getzio.in/api';
-
-  // static const String baseUrl =
-  //     "http://192.168.31.58:5000/api"; // For Physical Device (WiFi)
+  static const String baseUrl = "https://getzio-backend-dev.onrender.com/api";
+  static const String imageBaseUrl = "https://getzio-backend-dev.onrender.com";
 
   // Auth
   static const String login = '$baseUrl/auth/admin/login';

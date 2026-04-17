@@ -140,6 +140,17 @@ class _DashboardShellState extends ConsumerState<DashboardShell> {
               title: const Text('Settings'),
               onTap: () {},
             ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.logout, color: Colors.red),
+              title: const Text(
+                'Logout',
+                style: TextStyle(color: Colors.red),
+              ),
+              onTap: () {
+                ref.read(authStateProvider.notifier).logout();
+              },
+            ),
           ],
         ),
       ),

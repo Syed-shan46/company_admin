@@ -38,6 +38,7 @@ class AdminSocketService {
       baseUrl,
       io.OptionBuilder()
           .setTransports(['websocket']) // Force websocket
+          .setExtraHeaders({'x-app-id': 'Admin App'}) // Identifier for Analytics
           .disableAutoConnect() // Don't connect until we're ready
           .setReconnectionAttempts(5)
           .setReconnectionDelay(5000)

@@ -1,3 +1,5 @@
+import '../../../core/constants/api_constants.dart';
+
 class PromoBanner {
   final String id;
   final String imageUrl;
@@ -10,9 +12,15 @@ class PromoBanner {
   });
 
   factory PromoBanner.fromMap(Map<String, dynamic> map, String id) {
+    String url = map['imageUrl'] ?? '';
+    if (url.startsWith('/uploads')) {
+      url = '${ApiConstants.imageBaseUrl}$url';
+    }
+
     return PromoBanner(
       id: id,
-      imageUrl: map['imageUrl'] ?? '',
+      imageUrl: url,
+
       createdAt: map['createdAt'] != null
           ? DateTime.parse(map['createdAt'])
           : DateTime.now(),

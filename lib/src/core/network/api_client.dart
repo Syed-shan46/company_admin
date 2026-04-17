@@ -26,6 +26,7 @@ class ApiClient {
     return {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
+      'x-app-id': 'Admin App',
       if (token != null) 'Authorization': 'Bearer $token',
     };
   }
@@ -109,7 +110,7 @@ class ApiClient {
         Uri.parse(_normalizeUrl(url)),
       );
       final headers = await _getHeaders();
-      request.headers.addAll({'Authorization': headers['Authorization'] ?? ''});
+      request.headers.addAll(headers);
 
       if (fields != null) {
         request.fields.addAll(fields);

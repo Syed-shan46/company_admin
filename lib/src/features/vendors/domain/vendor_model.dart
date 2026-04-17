@@ -1,3 +1,4 @@
+import 'package:company_admin/src/core/constants/api_constants.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'vendor_model.g.dart';
@@ -24,6 +25,16 @@ class Vendor {
   final bool isGlobalVisible;
   @JsonKey(defaultValue: 'restaurant')
   final String vendorType;
+
+  String? get fullProfileImageUrl =>
+      profileImage != null && profileImage!.startsWith('/uploads')
+      ? '${ApiConstants.imageBaseUrl}$profileImage'
+      : profileImage;
+
+  String? get fullCoverImageUrl =>
+      coverImage != null && coverImage!.startsWith('/uploads')
+      ? '${ApiConstants.imageBaseUrl}$coverImage'
+      : coverImage;
 
   Vendor({
     required this.id,
