@@ -13,18 +13,35 @@ import '../../features/support/presentation/support_chat_screen.dart';
 import '../../features/wallet/screens/wallet_list_screen.dart';
 import '../../features/store_types/presentation/store_types_screen.dart';
 import '../../features/banners/presentation/banners_screen.dart';
+import '../../features/onboarding/presentation/onboarding_screen.dart';
+import '../../features/onboarding/data/onboarding_repository.dart';
 
 // Key for access to Context
 final navigatorKey = GlobalKey<NavigatorState>();
 
 final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authStateProvider);
+  final isOnboardingComplete = ref.watch(onboardingCompletedProvider);
 
   return GoRouter(
     navigatorKey: navigatorKey,
     initialLocation: '/',
-    refreshListenable: _AuthStateListenable(authState),
+    refreshListenable: _CombinedListenable([
+      _AuthStateListenable(authState),
+      _OnboardingListenable(isOnboardingComplete),
+    ]),
     redirect: (context, state) {
+      final onboardingComplete = isOnboardingComplete;
+      final isOnboardingPage = state.uri.toString() == '/onboarding';
+
+      if (!onboardingComplete) {
+        return isOnboardingPage ? null : '/onboarding';
+      }
+
+      if (isOnboardingPage) {
+        return '/';
+      }
+
       final isLoggedIn = authState.valueOrNull ?? false;
       final isLoggingIn = state.uri.toString() == '/login';
 
@@ -39,6 +56,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       return null;
     },
     routes: [
+      GoRoute(
+        path: '/onboarding',
+        builder: (context, state) => const OnboardingScreen(),
+      ),
       GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
       ShellRoute(
         builder: (context, state, child) {
@@ -117,6 +138,20 @@ class _AuthStateListenable extends ChangeNotifier {
   _AuthStateListenable(AsyncValue<bool> state) {
     if (!state.isLoading) {
       notifyListeners();
+    }
+  }
+}
+
+class _OnboardingListenable extends ChangeNotifier {
+  _OnboardingListenable(bool complete) {
+    notifyListeners();
+  }
+}
+
+class _CombinedListenable extends ChangeNotifier {
+  _CombinedListenable(List<ChangeNotifier> listenables) {
+    for (final listenable in listenables) {
+      listenable.addListener(notifyListeners);
     }
   }
 }
