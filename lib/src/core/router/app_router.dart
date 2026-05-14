@@ -15,6 +15,7 @@ import '../../features/store_types/presentation/store_types_screen.dart';
 import '../../features/banners/presentation/banners_screen.dart';
 import '../../features/onboarding/presentation/onboarding_screen.dart';
 import '../../features/onboarding/data/onboarding_repository.dart';
+import '../../features/users/presentation/users_screen.dart';
 
 // Key for access to Context
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -91,10 +92,7 @@ final routerProvider = Provider<GoRouter>((ref) {
           ),
           GoRoute(
             path: '/users',
-            builder: (context, state) => Scaffold(
-              appBar: AppBar(title: const Text('Users')),
-              body: const Center(child: Text('User Management - Coming Soon')),
-            ),
+            builder: (context, state) => const UsersScreen(),
           ),
           GoRoute(
             path: '/orders',

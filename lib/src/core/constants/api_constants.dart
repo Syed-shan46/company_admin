@@ -54,5 +54,11 @@ class ApiConstants {
   static const String rechargeWallet = '$baseUrl/wallet/recharge';
   static String walletTransactions(String vendorId) =>
       '$baseUrl/wallet/$vendorId/transactions';
+
+  // Admin - User Management
+  static const String adminVendorUsers = '$baseUrl/admin/vendor-users';
+  static const String adminCustomers = '$baseUrl/admin/customers';
+  static String deleteVendorUser(String id) => '$baseUrl/admin/vendor-users/$id';
+  static String deleteCustomer(String id) => '$baseUrl/admin/customers/$id';
 }
 

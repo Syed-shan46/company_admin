@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "multi-vendor-admin",
+			"path": "../multi-vendor-admin"
+		},
+		{
+			"path": "../multi-vendor-backend"
+		},
+		{
+			"path": "../zepcart"
+		},
+		{
+			"name": "Getzio-analytics",
+			"path": "../Getzio-analytics"
+		}
+	],
+	"settings": {}
+}
