@@ -21,7 +21,7 @@ class UsersRepository {
   final ApiClient _api = ApiClient();
 
   Future<List<VendorUser>> fetchVendorUsers() async {
-    final response = await _api.get(ApiConstants.adminVendorUsers);
+    final response = await _api.get('${ApiConstants.adminVendorUsers}?limit=100');
 
     if (response != null && response is Map && response.containsKey('data')) {
       final data = response['data'];
@@ -35,7 +35,7 @@ class UsersRepository {
   }
 
   Future<List<Customer>> fetchCustomers() async {
-    final response = await _api.get(ApiConstants.adminCustomers);
+    final response = await _api.get('${ApiConstants.adminCustomers}?limit=100');
 
     if (response != null && response is Map && response.containsKey('data')) {
       final data = response['data'];
